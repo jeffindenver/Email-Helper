@@ -28,7 +28,6 @@ public class OptionsPanel extends JPanel {
         }
     }
     
-    //There should be no more than four rows in accountRows list
     public void addAccountsToPanel () {
         for (ComboRow aRow : accountRows) {
             oneColumn.add(aRow);
