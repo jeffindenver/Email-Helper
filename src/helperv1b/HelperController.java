@@ -30,30 +30,10 @@ public class HelperController {
         view.getOptionsPanel().addAccountsToPanel();
         
         view.inventoryBackgroundImages();
-
-        //Although 4 accounts are not required, more than 4 is not supported
-        //the model tests the size, if greater than four it is set to four.
-        int size = model.getAccounts().size();
-        for (int i = 0; i < size; i++) {
-            view.addButtonListener(new ButtonListener(), view.getOptionsPanel().getButton(i));
-        }
-
-        view.addButtonListener(new ClipboardButtonListener(), view.getCenterPanel().getBtnClipboard());
-        view.addButtonListener(new ClipboardButtonListener(), view.getRightPanel().getBtnClipboard());
         
-        view.addButtonListener(new OpenButtonListener(), view.getCenterPanel().getOpenButton());
-        view.addButtonListener(new OpenButtonListener(), view.getRightPanel().getOpenButton());
-        view.addButtonListener(new SaveButtonListener(), view.getCenterPanel().getSaveButton());
-        view.addButtonListener(new SaveButtonListener(), view.getRightPanel().getSaveButton());
-        view.addButtonListener(new ClearButtonListener(), view.getCenterPanel().getClearButton());
-        view.addButtonListener(new ClearButtonListener(), view.getRightPanel().getClearButton());
-        
-        view.addMouseAdapter(new ChangeBackgroundListener(), view.getLogoPanel().getPicLabel());
-        view.addMouseAdapter(new RightClickListener(), view.getCenterPanel().getTextArea());
-        view.addMouseAdapter(new RightClickListener(), view.getRightPanel().getTextArea());
-       
+        addListeners();
     }
-    
+
     private class ButtonListener implements ActionListener {
 
         @Override
@@ -337,4 +317,27 @@ public class HelperController {
             }
         }
     }
+    
+    private void addListeners() {
+
+        int size = model.getAccounts().size();
+        for (int i = 0; i < size; i++) {
+            view.addButtonListener(new ButtonListener(), view.getOptionsPanel().getButton(i));
+        }
+
+        view.addButtonListener(new ClipboardButtonListener(), view.getCenterPanel().getBtnClipboard());
+        view.addButtonListener(new ClipboardButtonListener(), view.getRightPanel().getBtnClipboard());
+        
+        view.addButtonListener(new OpenButtonListener(), view.getCenterPanel().getOpenButton());
+        view.addButtonListener(new OpenButtonListener(), view.getRightPanel().getOpenButton());
+        view.addButtonListener(new SaveButtonListener(), view.getCenterPanel().getSaveButton());
+        view.addButtonListener(new SaveButtonListener(), view.getRightPanel().getSaveButton());
+        view.addButtonListener(new ClearButtonListener(), view.getCenterPanel().getClearButton());
+        view.addButtonListener(new ClearButtonListener(), view.getRightPanel().getClearButton());
+        
+        view.addMouseAdapter(new ChangeBackgroundListener(), view.getLogoPanel().getPicLabel());
+        view.addMouseAdapter(new RightClickListener(), view.getCenterPanel().getTextArea());
+        view.addMouseAdapter(new RightClickListener(), view.getRightPanel().getTextArea());
+    }
+    
 }
