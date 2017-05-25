@@ -1,0 +1,3 @@
+http://localhost/accounts/Pango/pangoTicket.txt
+http://localhost/accounts/Pango/pangoGeneral.txt
+http://localhost/accounts/Pango/pangoDispute.txt

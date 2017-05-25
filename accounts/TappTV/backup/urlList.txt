@@ -1,0 +1,3 @@
+http://localhost/accounts/TappTV/tapptvGeneral.txt
+http://localhost/accounts/TappTV/tapptvRefund.txt
+http://localhost/accounts/TappTV/tapptvBrowser.txt
