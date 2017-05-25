@@ -1,4 +1,4 @@
-package helperv1b;
+package EmailHelper;
 
 import java.awt.FlowLayout;
 import static java.awt.Color.orange;

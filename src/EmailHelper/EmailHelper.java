@@ -5,9 +5,9 @@
 // emails then quickly load the template emails into the system clipboard to 
 // be pasted into an outgoing email.
 //******************************************************************************
-package helperv1b;
+package EmailHelper;
 
-public class HelperV1b {
+public class EmailHelper {
 
     public static void main(String[] args) {
         HelperModel model = new HelperModel();

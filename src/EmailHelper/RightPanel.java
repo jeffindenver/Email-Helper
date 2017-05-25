@@ -1,4 +1,4 @@
-package helperv1b;
+package EmailHelper;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;

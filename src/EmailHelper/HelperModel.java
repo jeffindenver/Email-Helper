@@ -1,4 +1,4 @@
-package helperv1b;
+package EmailHelper;
 
 import java.io.File;
 import java.io.IOException;

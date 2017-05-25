@@ -1,4 +1,4 @@
-package helperv1b;
+package EmailHelper;
 
 import FileOps.FileOps;
 import FileOps.UrlConnectionReader;
