@@ -1,6 +1,5 @@
 package helperv1b;
 
-// @author Jeff
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
