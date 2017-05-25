@@ -1,6 +1,5 @@
 package helperv1b;
 
-// @author Jeff
 import java.awt.FlowLayout;
 import static java.awt.Color.orange;
 import javax.swing.BorderFactory;
