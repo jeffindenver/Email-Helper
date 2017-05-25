@@ -17,6 +17,7 @@ public class HelperModel {
 
         inventoryAccounts();
 
+        //UI space constraints allow a max of four accounts.
         int maxElements = 4;
         int size = accountNames.size();
         if (size > maxElements) {
