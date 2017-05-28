@@ -1,2 +1,0 @@
-accounts/3Dconnexion/
-Three D test text

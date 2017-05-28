@@ -1,3 +1,4 @@
-pangoTicket.txt
 pangoGeneral.txt
+pangoTicket.txt
 pangoDispute.txt
+pangoAlternatives.txt

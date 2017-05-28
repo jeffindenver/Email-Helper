@@ -1,0 +1,7 @@
+In the case of Fusion, Autodesk uses a second executable to run different portions of the GUI (for example the data pane where models are opened from).  As this profile is for a non 3D mouse enabled application, it is only emulating the mouse scroll wheel with the tilt axis, which in the case of Fusion is the zoom function.  
+
+Can you please try copying the “Fusion_Ignore.xml” file from within the attached zip folder to this folder location on your machine:  
+
+“%APPDATA%\3Dconnexion\3DxWare\Cfg”
+
+This tells the driver to ignore this executable.

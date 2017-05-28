@@ -1,3 +1,4 @@
 threeDConnexionGeneral.txt
-threeDConnexionTestOne.txt
-threeDConnexionTestTwo.txt
+threeDxfirmware.txt
+threeDxFusion.txt
+threeDxUnsupported.txt

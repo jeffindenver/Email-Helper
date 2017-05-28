@@ -127,7 +127,6 @@ public class Account {
                 }
                 else {
                     tempUrl = this.getStringUrl() + this.getFilenames().get(i);
-                    System.out.println(tempUrl);//debugging
                     contents = UrlConnectionReader.getUrlContents(tempUrl);
                 }
 	    }

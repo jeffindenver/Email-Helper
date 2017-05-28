@@ -1,5 +1,15 @@
-Meter UP Pricing Text
-local file
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciun.
 
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+Here is a description of how premium pricing works.
+
+meterUP customers are allowed to extend beyond the posted maximum stay restriction by paying a premium pricing structure as follows:
+
+ EXAMPLE two-hour zone at $3.00 per hour.
+     1st Tier: Two-hour limit, $3.00 per hour – Parking sessions combined total two-hours, customer may extend into the 2nd tier at the next pricing level.
+     2nd Tier: Two-hour limit, $6.00 per hour – Parking sessions combined total two-hours, customer may extend into the 3rd tier at the next pricing level.
+     3rd Tier: Two-hour limit, $9.00 per hour – Parking sessions combined total two-hours, additional time NOT permitted.
+
+If you have any other questions regarding your account, please call the meterUP Helpdesk at 1-844-meterUP (1-844-638-3787) or go to our FAQ page at http://www.meterUP.xyz/faq.html. 
+
+Warm Regards,
+The meterUP Family!

@@ -1,0 +1,16 @@
+
+
+you can find a list of supported applications on our website. [unsupported application] is not (yet) listed.
+
+In order to use it with a 3Dconnexion 3D mouse, support for 3D devices would need to be added inside this software. Adding 3D device support to an application is determined by the application developer rather than by 3Dconnexion. We have an SDK [Software Development Kit] which any software developer can download at no cost and which allows the integration of 3D device support in proprietary software. Please see here for more details: http://www.3dconnexion.com/service/software-developer.html. 
+
+We advise our customers to contact the Customer Service of applications that are lacking support and request it be added in future versions of their software. The decision to include support for 3D mice in their development schedule is often influenced by the level of customer interest.
+
+I recommend that you contact [name of manufacturer of the unsupported application] and express your wish to make clear that this is a demand from their customers.
+
+With best regards,
+Jeff
+3Dconnexion Technical Support
+
+At 3Dconnexion we are always striving to improve our services and we would like to know what you experienced. You can help by completing a one-page-survey, which should take around 2 minutes. Please follow this link to answer a few quick questions about the quality of our support service!
+https://www.surveymonkey.com/s/3Dconnexion_US 

@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 public class ComboRow extends JPanel {
     private final JComboBox comboBox;
     private final JButton button;
+    // to do: create an implementation of the ComboBoxModel interface so 
+    // vectors can be replaced. Or replace vectors with arrays.
     private Vector<String> keyList;
 
     public ComboRow(String title, Vector keys) {

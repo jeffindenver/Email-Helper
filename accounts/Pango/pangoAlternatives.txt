@@ -1,0 +1,17 @@
+ 
+Park your car in the location of your choice
+Start parking session and payment, using one of the following options :
+APP - Open the Pango smartphone application, choose the type of parking facility, choose a vehicle, a city and a zone# as presented on the street sign or the meter sticker, and tap the orange “P” button.
+Your Cell Phone – Call 1 (877) myPango [1 (877) 697-2646] from your registered mobile phone and follow the IVR* or ASR** instructions.
+Any Phone – Call 1 (877) myPango [1 (877) 697-2646] from any phone, enter your mobile phone # and your pin code, and follow the IVR* or ASR** instructions.
+Text – Text back “Start [city name] zone [zone number] car [license plate#]” from your registered mobile phone to the same number, from which you have received the parking activation confirmation text message .
+WEB – Sign-In, go to “Park Car”, select your car, select city, select parking zone and click the “start” button.
+ 
+Stop parking session and payment, when you are ready to leave, using one of the following options:
+APP – Open the Pango Smartphone APP and tap the “Stop Parking” button.
+Your Cell Phone – Call 1 (877) myPango [1 (877) 697-2646] from your registered mobile phone and follow the IVR* or ASR* instructions.
+Any Phone – Call 1 (877) myPango [1 (877) 697-2646] from any phone, enter your mobile phone # and your pin code, and follow the IVR* or ASR** instructions.
+Text – Text back “Stop Pango” from your registered mobile phone to the same number, from which you have received the parking activation confirmation text message .
+WEB – Sign-In, go to “Park Car”, select your car and click the “stop” button.
+* IVR (interactive voice response)
+** ASR (automated speech recognition)
