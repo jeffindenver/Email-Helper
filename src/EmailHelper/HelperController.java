@@ -14,6 +14,7 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -64,7 +65,7 @@ public class HelperController {
             view.getCenterPanel().displayText(outText);
         }
     }
-    
+      
     private class ClipboardButtonListener implements ActionListener {
 
         StringSelection selection;
@@ -87,29 +88,35 @@ public class HelperController {
         }
     }
 
-    private class RightClickListener extends MouseAdapter {
+        private class RightClickListener extends MouseAdapter {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-
+            JTextArea textArea = null;
+            
             if (SwingUtilities.isRightMouseButton(e)) {
                 if (e.getComponent() == view.getCenterPanel().getTextArea()) {
-                    LeftPopupMenuCCP ccpMenu = new LeftPopupMenuCCP();
-                    ccpMenu.show(e.getComponent(), e.getX(), e.getY());
-                    ccpMenu.setVisible(true);
+                    textArea = view.getCenterPanel().getTextArea();
                 }
                 if (e.getComponent() == view.getRightPanel().getTextArea()) {
-                    RightPopupMenuCCP ccpMenu = new RightPopupMenuCCP();
-                    ccpMenu.show(e.getComponent(), e.getX(), e.getY());
-                    ccpMenu.setVisible(true);
+                    textArea = view.getRightPanel().getTextArea();
                 }
             }
+            if (textArea != null) {
+                showCCPMenu(textArea, e);
+            }
+        }
+        
+        public void showCCPMenu(JTextArea textArea, MouseEvent e) {
+            PopupMenuCCP ccpMenu = new PopupMenuCCP(textArea);
+            ccpMenu.show(e.getComponent(), e.getX(), e.getY());
+            ccpMenu.setVisible(true);
         }
     }
 
-    private class LeftPopupMenuCCP extends JPopupMenu {
-
-        public LeftPopupMenuCCP() {
+    private class PopupMenuCCP extends JPopupMenu {
+        
+        public PopupMenuCCP(JTextArea textArea) {
             JMenuItem mCopy = new JMenuItem("copy");
             JMenuItem mCut = new JMenuItem("cut");
             JMenuItem mPaste = new JMenuItem("paste");
@@ -118,61 +125,33 @@ public class HelperController {
             add(mCut);
             add(mPaste);
             
-            mCopy.addActionListener(new LeftMenuListener());
-            mCut.addActionListener(new LeftMenuListener());
-            mPaste.addActionListener(new LeftMenuListener());
+            mCopy.addActionListener(new MenuListener(textArea));
+            mCut.addActionListener(new MenuListener(textArea));
+            mPaste.addActionListener(new MenuListener(textArea));
         }
+        
+        private class MenuListener implements ActionListener {
 
-        private class LeftMenuListener implements ActionListener {
-
+            JTextArea textArea;
+            
+            public MenuListener(JTextArea textArea) {
+                this.textArea = textArea;
+            }
+            
             @Override
             public void actionPerformed(ActionEvent ae) {
 
                 if (ae.getActionCommand().equals("copy")) {
-                    view.getCenterPanel().getTextArea().copy();
+                    textArea.copy();
                 }
                 if (ae.getActionCommand().equals("cut")) {
-                    view.getCenterPanel().getTextArea().cut();
+                    textArea.cut();
                 }
                 if (ae.getActionCommand().equals("paste")) {
-                    view.getCenterPanel().getTextArea().paste();
+                    textArea.paste();
                 }
             }
-        }
-    }
-
-    private class RightPopupMenuCCP extends JPopupMenu {
-
-        public RightPopupMenuCCP() {
-            JMenuItem mCopy = new JMenuItem("copy");
-            JMenuItem mCut = new JMenuItem("cut");
-            JMenuItem mPaste = new JMenuItem("paste");
-            
-            add(mCopy);
-            add(mCut);
-            add(mPaste);
-            
-            mCopy.addActionListener(new RightMenuListener());
-            mCut.addActionListener(new RightMenuListener());
-            mPaste.addActionListener(new RightMenuListener());
-        }
-
-        private class RightMenuListener implements ActionListener {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                //inclue copy, cut and paste actions
-                if (ae.getActionCommand().equals("copy")) {
-                    view.getRightPanel().getTextArea().copy();
-                }
-                if (ae.getActionCommand().equals("cut")) {
-                    view.getRightPanel().getTextArea().cut();
-                }
-                if (ae.getActionCommand().equals("paste")) {
-                    view.getRightPanel().getTextArea().paste();
-                }
-            }
-        }
+        }    
     }
 
     private class ChangeBackgroundListener extends MouseAdapter {
