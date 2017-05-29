@@ -13,7 +13,7 @@ public class EmailHelper {
         HelperModel model = new HelperModel();
         HelperView view = new HelperView();
         HelperController controller = new HelperController(view, model);
-        
+
         view.setVisible(true);
     }
 }

@@ -41,7 +41,7 @@ public class TextAreaWithButton extends JPanel {
     public JButton getClearButton() {
         return clearButton;
     }
-    
+
     public TextAreaWithButton() {
         setOpaque(false);
         setLayout(new GridBagLayout());
@@ -65,19 +65,19 @@ public class TextAreaWithButton extends JPanel {
         Dimension tinyDim = new Dimension(32, 32);
         btnClipboard = new JButton(clipBoard);
         btnClipboard.setPreferredSize(tinyDim);
-        
+
         ImageIcon openIcon = new ImageIcon("images/openIcon.png", "open a file");
         openButton = new JButton(openIcon);
         openButton.setPreferredSize(tinyDim);
-        
+
         ImageIcon saveIcon = new ImageIcon("images/saveIcon.png", "save a file");
         saveButton = new JButton(saveIcon);
         saveButton.setPreferredSize(tinyDim);
-        
+
         ImageIcon clearIcon = new ImageIcon("images/clearIcon.png", "clear the field");
         clearButton = new JButton(clearIcon);
         clearButton.setPreferredSize(tinyDim);
-        
+
         JPanel buttonPanel = new JPanel(new GridLayout(4, 1, 5, 5));
         buttonPanel.setOpaque(false);
         buttonPanel.add(btnClipboard);
@@ -88,7 +88,7 @@ public class TextAreaWithButton extends JPanel {
         //jsp GridBag values
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(0,0,0,5);
+        c.insets = new Insets(0, 0, 0, 5);
         c.weightx = 0.5;
         c.gridx = 0;
         c.gridy = 0;

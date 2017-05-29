@@ -12,7 +12,7 @@ public class TitledPanel extends JPanel {
         int hgap = 5;
         int vgap = 10;
         setOpaque(false);
-        setLayout(new FlowLayout(FlowLayout.CENTER, hgap, vgap ));
+        setLayout(new FlowLayout(FlowLayout.CENTER, hgap, vgap));
         TitledBorder titleBorder;
         titleBorder = BorderFactory.createTitledBorder(title);
         titleBorder.setTitlePosition(TitledBorder.BOTTOM);

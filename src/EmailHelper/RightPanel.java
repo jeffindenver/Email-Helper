@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 
 public class RightPanel extends TextAreaWithButton {
-    
+
     public RightPanel getRightPanel() {
         return this;
     }
@@ -22,7 +22,7 @@ public class RightPanel extends TextAreaWithButton {
     public String getText() {
         return getTextArea().getText();
     }
-   
+
     public void displayText(String str) {
         getTextArea().setText(str);
     }

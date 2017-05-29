@@ -20,26 +20,26 @@ public class OptionsPanel extends JPanel {
         add(oneColumn);
 
     }//end constructor
-    
+
     public void addAccount(ArrayList<Account> accounts) {
         for (Account account : accounts) {
             ComboRow aRow = new ComboRow(account.getName(), account.getKeys());
             accountRows.add(aRow);
         }
     }
-    
-    public void addAccountsToPanel () {
+
+    public void addAccountsToPanel() {
         for (ComboRow aRow : accountRows) {
             oneColumn.add(aRow);
         }
     }
-    
+
     public JButton getButton(int index) {
         return accountRows.get(index).getButton();
     }
-    
+
     public JComboBox getComboBox(int index) {
         return accountRows.get(index).getComboBox();
     }
-    
+
 }//end class

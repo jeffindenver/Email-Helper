@@ -21,13 +21,13 @@ import javax.swing.JTextArea;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class HelperView extends JFrame {
-    
+
     //Background
     private final Background bg;
     private String lastBackground;
     private String backgroundDirectory;
     private List<String> backgroundImageNames;
-    
+
     //JFileChooser fields
     private JFileChooser openChooser;
     private JFileChooser saveChooser;
@@ -56,8 +56,7 @@ public class HelperView extends JFrame {
         FileOps fo = new FileOps("lastBackground.txt", false);
         try {
             lastBackground = fo.readSingleLineFromFile();
-        }
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             displayErrorMessage(ioe.getMessage());
         }
         String backgroundFilepath = backgroundDirectory + lastBackground;
@@ -91,12 +90,12 @@ public class HelperView extends JFrame {
         mainPanel.add(centerPanel);
         eastPanel.add(rightPanel);
         eastPanel.add(logoPanel);
-        
+
         //attach all to backpanel
         backPanel.add(westPanel, BorderLayout.LINE_START);
         backPanel.add(mainPanel, BorderLayout.CENTER);
         backPanel.add(eastPanel, BorderLayout.LINE_END);
-     
+
         bg.add(backPanel);
         getContentPane().add(bg);
 
@@ -109,7 +108,7 @@ public class HelperView extends JFrame {
     void addMouseAdapter(MouseAdapter mouseListener, JTextArea textArea) {
         textArea.addMouseListener(mouseListener);
     }
-    
+
     void addMouseAdapter(MouseAdapter mouseListener, JLabel aLabel) {
         aLabel.addMouseListener(mouseListener);
     }
@@ -121,7 +120,7 @@ public class HelperView extends JFrame {
         List<String> imageList = Arrays.asList(imageNamesArr);
         setBackgroundImageNames(imageList);
     }
-    
+
     public List<String> getBackgroundImageNames() {
         return backgroundImageNames;
     }
@@ -129,15 +128,15 @@ public class HelperView extends JFrame {
     public String getBackgroundImageName(int index) {
         return backgroundImageNames.get(index);
     }
-    
+
     private void setBackgroundImageNames(List<String> backgroundImageNames) {
         this.backgroundImageNames = new ArrayList<>(backgroundImageNames);
     }
-    
+
     Background getBg() {
         return bg;
     }
-  
+
     public JFileChooser getOpenChooser() {
         return openChooser;
     }

@@ -7,10 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HelperModel {
+
     private final String accountsDirectory;
     private List<String> accountNames;
     private final ArrayList<Account> accounts;
-    
+
     public HelperModel() {
         accountsDirectory = "accounts/";
         accounts = new ArrayList<>();
@@ -23,37 +24,35 @@ public class HelperModel {
         if (size > maxElements) {
             size = maxElements;
         }
-        
+
         Account anAccount = null;
         for (int i = 0; i < size; i++) {
             try {
                 anAccount = new Account(accountNames.get(i));
-            }
-            catch(IOException ioe) {
+            } catch (IOException ioe) {
                 System.out.println(ioe.getMessage());
             }
             accounts.add(anAccount);
         }
     }
-    
+
     private void inventoryAccounts() {
         File accountsPath = new File(accountsDirectory);
         String accountNamesArr[] = accountsPath.list();
         List<String> accountList = Arrays.asList(accountNamesArr);
         setAccountNames(accountList);
     }
-    
+
     private void setAccountNames(List<String> accountNames) {
         this.accountNames = new ArrayList<>(accountNames);
     }
-    
+
     public ArrayList<Account> getAccounts() {
         return this.accounts;
     }
-    
+
     public Account getOneAccount(int index) {
         return this.accounts.get(index);
     }
-    
-}
 
+}

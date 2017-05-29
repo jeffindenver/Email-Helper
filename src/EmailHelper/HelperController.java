@@ -19,19 +19,19 @@ import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class HelperController {
-    
+
     private final HelperModel model;
     private final HelperView view;
-    
+
     public HelperController(HelperView theView, HelperModel theModel) {
         this.view = theView;
         this.model = theModel;
-        
+
         view.getOptionsPanel().addAccount(model.getAccounts());
         view.getOptionsPanel().addAccountsToPanel();
-        
+
         view.inventoryBackgroundImages();
-        
+
         addListeners();
     }
 
@@ -43,21 +43,21 @@ public class HelperController {
             String outText = "";
             int size = model.getAccounts().size();
             int index = 0;
-            
-            while(index < size) {
-                if(ae.getSource() == view.getOptionsPanel().getButton(index)) {
-                    stringKey = 
-                            (String) view.getOptionsPanel().
-                                    getComboBox(index).getSelectedItem();
+
+            while (index < size) {
+                if (ae.getSource() == view.getOptionsPanel().getButton(index)) {
+
+                    stringKey = (String) view.getOptionsPanel().
+                            getComboBox(index).getSelectedItem();
                     try {
                         outText = model.getAccounts().get(index).readFile(stringKey);
-                    } catch(FileNotFoundException fnfe) {
-                        view.displayErrorMessage("File not found. "
-                                            + fnfe.getMessage());
-                    } catch(IOException ioe) {
-                        view.displayErrorMessage("There was an issue reading the file. " 
-                                            + ioe.getMessage());
+                    } catch (FileNotFoundException fnfe) {
+                        view.displayErrorMessage("File not found. " + fnfe.getMessage());
+                    } catch (IOException ioe) {
+                        view.displayErrorMessage("There was an issue reading the file. "
+                                + ioe.getMessage());
                     }
+                    // exit the while loop once the correct source is id'
                     break;
                 }
                 index++;
@@ -65,7 +65,7 @@ public class HelperController {
             view.getCenterPanel().displayText(outText);
         }
     }
-      
+
     private class ClipboardButtonListener implements ActionListener {
 
         StringSelection selection;
@@ -88,12 +88,12 @@ public class HelperController {
         }
     }
 
-        private class RightClickListener extends MouseAdapter {
+    private class RightClickListener extends MouseAdapter {
 
         @Override
         public void mouseClicked(MouseEvent e) {
             JTextArea textArea = null;
-            
+
             if (SwingUtilities.isRightMouseButton(e)) {
                 if (e.getComponent() == view.getCenterPanel().getTextArea()) {
                     textArea = view.getCenterPanel().getTextArea();
@@ -106,7 +106,7 @@ public class HelperController {
                 showCCPMenu(textArea, e);
             }
         }
-        
+
         public void showCCPMenu(JTextArea textArea, MouseEvent e) {
             PopupMenuCCP ccpMenu = new PopupMenuCCP(textArea);
             ccpMenu.show(e.getComponent(), e.getX(), e.getY());
@@ -115,29 +115,29 @@ public class HelperController {
     }
 
     private class PopupMenuCCP extends JPopupMenu {
-        
+
         public PopupMenuCCP(JTextArea textArea) {
             JMenuItem mCopy = new JMenuItem("copy");
             JMenuItem mCut = new JMenuItem("cut");
             JMenuItem mPaste = new JMenuItem("paste");
-            
+
             add(mCopy);
             add(mCut);
             add(mPaste);
-            
+
             mCopy.addActionListener(new MenuListener(textArea));
             mCut.addActionListener(new MenuListener(textArea));
             mPaste.addActionListener(new MenuListener(textArea));
         }
-        
+
         private class MenuListener implements ActionListener {
 
             JTextArea textArea;
-            
+
             public MenuListener(JTextArea textArea) {
                 this.textArea = textArea;
             }
-            
+
             @Override
             public void actionPerformed(ActionEvent ae) {
 
@@ -151,11 +151,11 @@ public class HelperController {
                     textArea.paste();
                 }
             }
-        }    
+        }
     }
 
     private class ChangeBackgroundListener extends MouseAdapter {
-        
+
         @Override
         public void mouseClicked(MouseEvent e) {
 
@@ -171,9 +171,9 @@ public class HelperController {
 
         public BackgroundPopupMenu() {
             int size = view.getBackgroundImageNames().size();
-            
+
             JMenuItem[] imageMenuItems = new JMenuItem[size];
-            
+
             for (int i = 0; i < size; i++) {
                 imageMenuItems[i] = new JMenuItem(view.getBackgroundImageName(i));
                 add(imageMenuItems[i]);
@@ -189,7 +189,7 @@ public class HelperController {
                 int size = view.getBackgroundImageNames().size();
                 int index = 0;
                 String imageName = "default.jpg";
-                while(index < size) {
+                while (index < size) {
                     imageName = view.getBackgroundImageName(index);
                     if (ae.getActionCommand().equalsIgnoreCase(imageName)) {
                         view.getBg().setBg(imageName);
@@ -205,14 +205,13 @@ public class HelperController {
                 FileOps fo = new FileOps("lastBackground.txt", false);
                 try {
                     fo.writeToFile(imageName);
-                } 
-                catch (IOException ioe) {
+                } catch (IOException ioe) {
                     view.displayErrorMessage(ioe.getMessage());
                 }
             }
         }
     }
-    
+
     private class OpenButtonListener implements ActionListener {
 
         @Override
@@ -227,20 +226,21 @@ public class HelperController {
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 String tempString = openFile(openChooser.getSelectedFile(), false);
-                if(ae.getSource() == view.getCenterPanel().getOpenButton()) {
+                if (ae.getSource() == view.getCenterPanel().getOpenButton()) {
                     view.getCenterPanel().displayText(tempString);
                 }
-                if(ae.getSource() == view.getRightPanel().getOpenButton()) {
+                if (ae.getSource() == view.getRightPanel().getOpenButton()) {
                     view.getRightPanel().displayText(tempString);
                 }
             }
         }
     }
+
     private class SaveButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            String aString = "";            
+            String aString = "";
             String userDir = System.getProperty("user.home");
             JFileChooser saveChooser = new JFileChooser(userDir + "/Desktop");
             FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -252,19 +252,19 @@ public class HelperController {
 
                 view.setF(saveChooser.getSelectedFile());
                 FileOps fo = new FileOps(view.getF(), view.hasAppendStatus());
-                
-                if(ae.getSource() == view.getCenterPanel().getSaveButton()) {
+
+                if (ae.getSource() == view.getCenterPanel().getSaveButton()) {
                     aString = view.getCenterPanel().getTextArea().getText();
                 }
-                
-                if(ae.getSource() == view.getRightPanel().getSaveButton()) {
+
+                if (ae.getSource() == view.getRightPanel().getSaveButton()) {
                     aString = view.getRightPanel().getTextArea().getText();
                 }
-                    try {
-                        fo.writeToFile(aString);   
-                    } catch (IOException ioe) {
-                        view.displayErrorMessage(ioe.getMessage());
-                    }
+                try {
+                    fo.writeToFile(aString);
+                } catch (IOException ioe) {
+                    view.displayErrorMessage(ioe.getMessage());
+                }
             }
         }
     }
@@ -275,8 +275,8 @@ public class HelperController {
         try {
             aString = fo.readFromFile();
         } catch (FileNotFoundException fnfe) {
-            view.displayErrorMessage("Please check the filename and directory.\n" 
-                                    + fnfe.getMessage());
+            view.displayErrorMessage("Please check the filename and directory.\n"
+                    + fnfe.getMessage());
         } catch (IOException ioe) {
             view.displayErrorMessage(ioe.getMessage());
         }
@@ -288,15 +288,15 @@ public class HelperController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String empty = "";
-            if(e.getSource() == view.getCenterPanel().getClearButton()) {
+            if (e.getSource() == view.getCenterPanel().getClearButton()) {
                 view.getCenterPanel().displayText(empty);
             }
-            if(e.getSource() == view.getRightPanel().getClearButton()) {
-                view.getRightPanel().displayText(empty);               
+            if (e.getSource() == view.getRightPanel().getClearButton()) {
+                view.getRightPanel().displayText(empty);
             }
         }
     }
-    
+
     private void addListeners() {
 
         int size = model.getAccounts().size();
@@ -306,17 +306,17 @@ public class HelperController {
 
         view.addButtonListener(new ClipboardButtonListener(), view.getCenterPanel().getBtnClipboard());
         view.addButtonListener(new ClipboardButtonListener(), view.getRightPanel().getBtnClipboard());
-        
+
         view.addButtonListener(new OpenButtonListener(), view.getCenterPanel().getOpenButton());
         view.addButtonListener(new OpenButtonListener(), view.getRightPanel().getOpenButton());
         view.addButtonListener(new SaveButtonListener(), view.getCenterPanel().getSaveButton());
         view.addButtonListener(new SaveButtonListener(), view.getRightPanel().getSaveButton());
         view.addButtonListener(new ClearButtonListener(), view.getCenterPanel().getClearButton());
         view.addButtonListener(new ClearButtonListener(), view.getRightPanel().getClearButton());
-        
+
         view.addMouseAdapter(new ChangeBackgroundListener(), view.getLogoPanel().getPicLabel());
         view.addMouseAdapter(new RightClickListener(), view.getCenterPanel().getTextArea());
         view.addMouseAdapter(new RightClickListener(), view.getRightPanel().getTextArea());
     }
-    
+
 }

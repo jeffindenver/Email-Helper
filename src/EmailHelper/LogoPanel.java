@@ -10,15 +10,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class LogoPanel extends JPanel {
+
     private BufferedImage javaLogo;
     private final JLabel picLabel;
 
     public LogoPanel() {
         setOpaque(false);
         setLayout(new BorderLayout());
-        
+
         JPanel fillerPanel = new JPanel();
         fillerPanel.setOpaque(false);
         Dimension filler = new Dimension(80, 240);
@@ -27,13 +27,13 @@ public class LogoPanel extends JPanel {
         try {
             javaLogo = ImageIO.read(new File("images/blueJavaCup.png"));
         } catch (IOException ioe) {
-            System.err.println(ioe.getMessage() + 
-                    "An image could not be found or read.");
+            System.err.println(ioe.getMessage()
+                    + "An image could not be found or read.");
         }
         picLabel = new JLabel(new ImageIcon(javaLogo));
-        
+
         add(fillerPanel, BorderLayout.PAGE_START);
-        
+
         add(picLabel, BorderLayout.PAGE_END);
     }
 

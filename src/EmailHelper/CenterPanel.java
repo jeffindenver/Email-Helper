@@ -22,7 +22,7 @@ public class CenterPanel extends TextAreaWithButton {
     public String getText() {
         return getTextArea().getText();
     }
-        
+
     public void displayText(String str) {
         getTextArea().setText(str);
     }
