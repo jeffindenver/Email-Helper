@@ -35,7 +35,7 @@ public class HelperController {
         addListeners();
     }
 
-    private class ButtonListener implements ActionListener {
+    private class ComboBoxButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -57,7 +57,7 @@ public class HelperController {
                         view.displayErrorMessage("There was an issue reading the file. "
                                 + ioe.getMessage());
                     }
-                    // exit the while loop once the correct source is id'
+                    // exit the while loop once the correct source is id'd
                     break;
                 }
                 index++;
@@ -125,16 +125,16 @@ public class HelperController {
             add(mCut);
             add(mPaste);
 
-            mCopy.addActionListener(new MenuListener(textArea));
-            mCut.addActionListener(new MenuListener(textArea));
-            mPaste.addActionListener(new MenuListener(textArea));
+            mCopy.addActionListener(new CCPMenuListener(textArea));
+            mCut.addActionListener(new CCPMenuListener(textArea));
+            mPaste.addActionListener(new CCPMenuListener(textArea));
         }
 
-        private class MenuListener implements ActionListener {
+        private class CCPMenuListener implements ActionListener {
 
             JTextArea textArea;
 
-            public MenuListener(JTextArea textArea) {
+            public CCPMenuListener(JTextArea textArea) {
                 this.textArea = textArea;
             }
 
@@ -154,7 +154,7 @@ public class HelperController {
         }
     }
 
-    private class ChangeBackgroundListener extends MouseAdapter {
+    private class BackgroundImageListener extends MouseAdapter {
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -185,7 +185,6 @@ public class HelperController {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //change background here
                 int size = view.getBackgroundImageNames().size();
                 int index = 0;
                 String imageName = "default.jpg";
@@ -221,7 +220,6 @@ public class HelperController {
             FileNameExtensionFilter filter = new FileNameExtensionFilter(
                     "Text Files", "txt");
             openChooser.setFileFilter(filter);
-
             int returnVal = openChooser.showOpenDialog(null);
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -301,7 +299,7 @@ public class HelperController {
 
         int size = model.getAccounts().size();
         for (int i = 0; i < size; i++) {
-            view.addButtonListener(new ButtonListener(), view.getOptionsPanel().getButton(i));
+            view.addButtonListener(new ComboBoxButtonListener(), view.getOptionsPanel().getButton(i));
         }
 
         view.addButtonListener(new ClipboardButtonListener(), view.getCenterPanel().getBtnClipboard());
@@ -314,7 +312,7 @@ public class HelperController {
         view.addButtonListener(new ClearButtonListener(), view.getCenterPanel().getClearButton());
         view.addButtonListener(new ClearButtonListener(), view.getRightPanel().getClearButton());
 
-        view.addMouseAdapter(new ChangeBackgroundListener(), view.getLogoPanel().getPicLabel());
+        view.addMouseAdapter(new BackgroundImageListener(), view.getLogoPanel().getPicLabel());
         view.addMouseAdapter(new RightClickListener(), view.getCenterPanel().getTextArea());
         view.addMouseAdapter(new RightClickListener(), view.getRightPanel().getTextArea());
     }

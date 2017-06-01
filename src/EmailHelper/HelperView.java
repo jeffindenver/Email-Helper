@@ -114,7 +114,6 @@ public class HelperView extends JFrame {
     }
 
     public void inventoryBackgroundImages() {
-        //read files located in the /bacgrounds directory to a list
         File backgroundPath = new File(backgroundDirectory);
         String imageNamesArr[] = backgroundPath.list();
         List<String> imageList = Arrays.asList(imageNamesArr);
