@@ -26,7 +26,6 @@ public class ComboRow extends JPanel {
         aRow.setPreferredSize(rowDim);
 
         setKeyList(keys);
-
         comboBox = new JComboBox(keyList);
         comboBox.setPreferredSize(comboDim);
 
