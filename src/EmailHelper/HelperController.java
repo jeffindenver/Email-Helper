@@ -57,7 +57,6 @@ public class HelperController {
                         view.displayErrorMessage("There was an issue reading the file. "
                                 + ioe.getMessage());
                     }
-                    // exit the while loop once the correct source is id'd
                     break;
                 }
                 index++;
@@ -295,6 +294,37 @@ public class HelperController {
         }
     }
 
+    private class ReplaceButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+
+            if (ae.getSource() == view.getCenterPanel().getReplacePanel().getBtnReplace()) {
+                char toBeReplaced[] = {'<', '>'};
+                char replacement = ' ';
+                String newString = " ";
+                String sourceString = view.getCenterPanel().getText();
+                for (int i = 0; i < toBeReplaced.length; i++) {
+                    newString = sourceString.replace(toBeReplaced[i], replacement);
+                    sourceString = newString;
+                }
+                view.getCenterPanel().displayText(newString);
+
+            }
+            if (ae.getSource() == view.getRightPanel().getReplacePanel().getBtnReplace()) {
+                char toBeReplaced[] = {'<', '>'};
+                char replacement = ' ';
+                String newString = " ";
+                String sourceString = view.getRightPanel().getText();
+                for (int i = 0; i < toBeReplaced.length; i++) {
+                    newString = sourceString.replace(toBeReplaced[i], replacement);
+                    sourceString = newString;
+                }
+                view.getRightPanel().displayText(newString);
+            }
+        }
+    }
+
     private void addListeners() {
 
         int size = model.getAccounts().size();
@@ -311,6 +341,8 @@ public class HelperController {
         view.addButtonListener(new SaveButtonListener(), view.getRightPanel().getSaveButton());
         view.addButtonListener(new ClearButtonListener(), view.getCenterPanel().getClearButton());
         view.addButtonListener(new ClearButtonListener(), view.getRightPanel().getClearButton());
+        view.addButtonListener(new ReplaceButtonListener(), view.getCenterPanel().getReplaceButton());
+        view.addButtonListener(new ReplaceButtonListener(), view.getRightPanel().getReplaceButton());
 
         view.addMouseAdapter(new BackgroundImageListener(), view.getLogoPanel().getPicLabel());
         view.addMouseAdapter(new RightClickListener(), view.getCenterPanel().getTextArea());

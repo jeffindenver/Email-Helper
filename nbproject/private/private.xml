@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/HelperController.java</file>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/TextAreaWithButton.java</file>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/ReplacePanel.java</file>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/CenterPanel.java</file>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/HelperView.java</file>
+            <file>file:/C:/Users/jshepherd/Documents/NetBeansProjects/Email-Helper/src/EmailHelper/RightPanel.java</file>
+        </group>
     </open-files>
 </project-private>

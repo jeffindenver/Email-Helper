@@ -19,6 +19,15 @@ public class CenterPanel extends TextAreaWithButton {
         return super.getBtnClipboard();
     }
 
+    @Override
+    public ReplacePanel getReplacePanel() {
+        return super.getReplacePanel();
+    }
+    
+    public JButton getReplaceButton() {
+        return super.getReplacePanel().getBtnReplace();
+    }
+    
     public String getText() {
         return getTextArea().getText();
     }
